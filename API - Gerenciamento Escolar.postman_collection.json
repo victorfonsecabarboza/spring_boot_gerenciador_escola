@@ -1,0 +1,404 @@
+{
+	"info": {
+		"_postman_id": "2461288e-b153-4ce3-aa29-a1f3959829d8",
+		"name": "API - Gerenciamento Escolar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29748184"
+	},
+	"item": [
+		{
+			"name": "Gerenciamento aluno",
+			"item": [
+				{
+					"name": "Cadastro aluno",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar se o aluno foi cadastrado com sucesso\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+									"    pm.expect(pm.response.json().nome).is.not.null;\r",
+									"    pm.expect(pm.response.json().sobrenome).is.not.null;\r",
+									"    pm.expect(pm.response.json().email).is.not.null;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"João\",\r\n    \"sobreNome\": \"Augusto\",\r\n    \"email\": \"joao@email.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/alunos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar aluno id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar se o aluno específico foi listado com sucesso\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/alunos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar alunos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar se os alunos foram listados com sucesso\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/alunos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar aluno id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar se o aluno foi alterado com sucesso\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+									"    pm.expect(pm.response.json().nome).is.not.null;\r",
+									"    pm.expect(pm.response.json().sobrenome).is.not.null;\r",
+									"    pm.expect(pm.response.json().email).is.not.null;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Victor\",\r\n    \"sobreNome\": \"Fonseca\",\r\n    \"email\": \"victor@email.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/alunos/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar aluno id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar se o aluno foi deletado com sucesso\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/alunos/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gerenciamento Professor",
+			"item": [
+				{
+					"name": "Cadastro professor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar se o professor foi cadastrado com sucesso\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+									"    pm.expect(pm.response.json().nome).is.not.null;\r",
+									"    pm.expect(pm.response.json().sobrenome).is.not.null;\r",
+									"    pm.expect(pm.response.json().email).is.not.null;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"João\",\r\n    \"sobreNome\": \"Augusto\",\r\n    \"email\": \"joao@email.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/professores",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"professores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar professor id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar se o professor foi listado com sucesso\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/professores/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"professores",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar professores",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar se os professores foram listados com sucesso\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/professores",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"professores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar professor id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar se o profesor foi alterado com sucesso\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+									"    pm.expect(pm.response.json().nome).is.not.null;\r",
+									"    pm.expect(pm.response.json().sobrenome).is.not.null;\r",
+									"    pm.expect(pm.response.json().email).is.not.null;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Rita\",\r\n    \"sobreNome\": \"Santana\",\r\n    \"email\": \"rita@email.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/professores/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"professores",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar professor id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verificar se o professor foi deletado com sucesso\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/professores/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"professores",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
